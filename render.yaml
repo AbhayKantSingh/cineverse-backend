@@ -1,0 +1,58 @@
+services:
+  - type: web
+    name: cineverse-backend
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: .
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false          # set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 30d
+      - key: TMDB_KEY_1
+        sync: false
+      - key: TMDB_KEY_2
+        sync: false
+      - key: TMDB_KEY_3
+        sync: false
+      - key: TMDB_KEY_4
+        sync: false
+      - key: TMDB_KEY_5
+        sync: false
+      - key: WATCHMODE_API_KEY
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: EMAIL_SERVICE
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: CineVerse
+      - key: EMAIL_FROM
+        sync: false
+      - key: FRONTEND_URL
+        sync: false          # set to your Netlify URL e.g. https://cineverse.netlify.app
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX
+        value: 500
+      - key: CACHE_TRENDING_TTL
+        value: 1800
+      - key: CACHE_MOVIE_TTL
+        value: 86400
+      - key: CACHE_SEARCH_TTL
+        value: 300
